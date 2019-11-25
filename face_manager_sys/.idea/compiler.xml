@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="server-file-api" />
+        <module name="server-ftp" />
+        <module name="common-feign" />
+        <module name="sever-shiro" />
+        <module name="common-core" />
+        <module name="server-file" />
+        <module name="server-api" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common-core" options="-parameters" />
+      <module name="common-feign" options="-parameters" />
+      <module name="server-api" options="-parameters" />
+      <module name="server-file" options="-parameters" />
+      <module name="server-file-api" options="-parameters" />
+      <module name="server-ftp" options="-parameters" />
+      <module name="sever-shiro" options="-parameters" />
+    </option>
+  </component>
+</project>
