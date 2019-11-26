@@ -7,11 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -22,27 +18,17 @@ import lombok.NoArgsConstructor;
  * @since 2019-04-08
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@ApiModel(value="PermissionVo",description="权限视图对象")
-public class PermissionVo implements Serializable {
+public class RoleVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-            private Long id;
 
-            private String title;
+            private Integer id;
+    /**
+     * 规则名
+     */
 
-            private String icon;
-
-            private String spread;
-
-            private String href;
-
-            private Long parentId;
-
-            private Integer sort;
+            private String roleName;
 
             private LocalDateTime createTime;
 

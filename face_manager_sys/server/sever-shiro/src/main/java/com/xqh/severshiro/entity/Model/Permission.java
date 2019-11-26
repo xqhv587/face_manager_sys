@@ -29,7 +29,7 @@ public class Permission extends DataEntity<Permission> {
 
 private static final long serialVersionUID = 1L;
 
-   @TableId(value="id", type= IdType.INPUT)
+   //@TableId(value="id", type= IdType.INPUT)
         
     private Long id;
 
@@ -41,13 +41,13 @@ private static final long serialVersionUID = 1L;
 
     private String href;
 
-    private Integer parentId;
+    private Long parentId;
 
     private Integer sort;
 
-    private LocalDateTime createTime;
-
-    private LocalDateTime updateTime;
+//    private LocalDateTime createTime;
+//
+//    private LocalDateTime updateTime;
 
     public static final String ID = "id";
     public static final String TITLE = "title";

@@ -27,18 +27,18 @@ import java.time.LocalDateTime;
 @TableName("role_permission")
 public class RolePermission extends DataEntity<RolePermission> {
 
-private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 12L;
 
-    @TableId(value="id", type= IdType.INPUT)
-    private Long id;
+//    @TableId(value="id", type= IdType.INPUT)
+//    private Long id;
 
     private Long roleId;
 
     private Long permissionId;
 
-    private LocalDateTime createTime;
-
-    private LocalDateTime updateTime;
+//    private LocalDateTime createTime;
+//
+//    private LocalDateTime updateTime;
 
     public static final String ID = "id";
     public static final String ROLE_ID = "role_id";

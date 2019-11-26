@@ -39,13 +39,14 @@ public class UserQo implements Serializable {
         @ApiModelProperty(value="age",name="年龄")
         private Integer age;
 
-        @ApiModelProperty(value="address",name="地址")
-        private String address;
-
         @ApiModelProperty(value="password",name="密码")
         private String password;
 
         @ApiModelProperty(value="roleId",name="角色id")
         private Long roleId;
+
+        @ApiModelProperty(value="status",name="用户状态")
+        private Integer status;
+
 
 }

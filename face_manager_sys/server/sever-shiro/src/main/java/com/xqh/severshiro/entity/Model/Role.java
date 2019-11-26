@@ -29,16 +29,16 @@ public class Role extends DataEntity<Role> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.INPUT)
-    private Long id;
+//    @TableId(value = "id", type = IdType.INPUT)
+//    private Long id;
     /**
      * 规则名
      */
     private String roleName;
 
-    private LocalDateTime createTime;
-
-    private LocalDateTime updateTime;
+//    private LocalDateTime createTime;
+//
+//    private LocalDateTime updateTime;
 
     public static final String ID = "id";
     public static final String ROLE_NAME = "role_name";

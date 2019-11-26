@@ -41,9 +41,6 @@ public class UserVo implements Serializable {
         @ApiModelProperty(value="age",name="年龄")
         private Integer age;
 
-        @ApiModelProperty(value="address",name="地址")
-        private String address;
-
         @ApiModelProperty(value="password",name="密码")
         private String password;
 
