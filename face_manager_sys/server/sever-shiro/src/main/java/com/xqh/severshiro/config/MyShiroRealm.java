@@ -22,8 +22,7 @@ import java.util.stream.Collectors;
 
 /**
  * 实现AuthorizingRealm接口用户用户认证
- * @author gjf
- * @since 2019-04-01
+ * @author xqh
  */
 public class MyShiroRealm extends AuthorizingRealm {
 

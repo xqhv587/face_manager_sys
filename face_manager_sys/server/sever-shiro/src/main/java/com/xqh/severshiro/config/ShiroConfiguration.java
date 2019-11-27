@@ -75,12 +75,15 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setLoginUrl("/login.html");
         // 设置无权限时跳转的 url;
         shiroFilterFactoryBean.setUnauthorizedUrl("/login.html");
+
         //自定义拦截器
         Map<String, Filter> filtersMap = new LinkedHashMap<>();
         filtersMap.put("myAccessControlFilter", new MyAccessControlFilter());
+        filtersMap.put("myShiroAuthFilter", new MyShiroAuthFilter());
+
         shiroFilterFactoryBean.setFilters(filtersMap);
 
-        // 设置拦截器
+        // 设置过滤器
         Map<String,String> map = new LinkedHashMap<>(16);
 
         //静态资源
@@ -104,8 +107,10 @@ public class ShiroConfiguration {
 
         //管理员，需要权限
         map.put("/user/getNavList", "anon");
-        //对所有用户认证
+        //对所有用户认证 put拦截器
         map.put("/**","myAccessControlFilter");
+
+        map.put("/**","myShiroAuthFilter");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         return shiroFilterFactoryBean;

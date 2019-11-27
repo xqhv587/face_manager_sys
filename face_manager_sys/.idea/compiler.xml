@@ -8,11 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="server-file-api" />
         <module name="server-ftp" />
-        <module name="common-feign" />
-        <module name="sever-shiro" />
         <module name="common-core" />
-        <module name="server-file" />
         <module name="server-api" />
+        <module name="sever-shiro" />
+        <module name="server-file" />
+        <module name="common-feign" />
       </profile>
     </annotationProcessing>
   </component>

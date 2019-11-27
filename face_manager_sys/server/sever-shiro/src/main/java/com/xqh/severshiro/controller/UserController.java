@@ -20,6 +20,7 @@ import com.xqh.severshiro.server.IRolePermissionService;
 import com.xqh.severshiro.server.IRoleService;
 import com.xqh.severshiro.server.IUserService;
 import com.xqh.severshiro.utils.JsonResult;
+import com.xqh.severshiro.utils.ShiroUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -71,12 +72,12 @@ public class UserController {
 
     @ApiOperation(value = "用户登录", notes = "用户登录")
     @PostMapping("/login")
-    public JsonResult<String> loginDo(String username, String password) {
-        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+    public JsonResult<String> loginDo(String name, String password) {
+        if (StringUtils.isEmpty(name) || StringUtils.isEmpty(password)) {
             return JsonResult.error(CodeEnum.USERNAME_OR_PASSWORD_NOT_EMPTY);
         }
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password, false);
+        UsernamePasswordToken token = new UsernamePasswordToken(name, password, false);
         try {
             subject.login(token);
             //session 永不过期
@@ -193,7 +194,7 @@ public class UserController {
 //    @ApiOperation(value = "添加用户", notes = "添加用户")
 //    @PostMapping("/addUser")
 //    public JsonResult addUser(@Valid UserQo userQo) {
-//        String adminName = userQo.getUsername().trim();
+//        String adminName = userQo.getName().trim();
 //        String adminPassWord = userQo.getPassword().trim();
 //
 //        if (userQo.getId() != null && userQo.getId() > 0) {
@@ -202,8 +203,20 @@ public class UserController {
 //            sysAdmin.setPassword(ShiroUtil.sysMd5(adminName, adminPassWord));
 //            sysAdmin.setNickName(userQo.getNickName());
 //            sysAdmin.setRoleId(userQo.getRoleId());
+//            sysAdmin.setAge(userQo.getAge());
+//            sysAdmin.set(userQo.getAge());
 //            sysAdmin.setUsername(adminName);
 //            //修改
+//            `job_number` int(12) DEFAULT NULL COMMENT '工号',
+//                    `gender` varchar(10) DEFAULT NULL,
+//            `grade` varchar(32) DEFAULT NULL COMMENT '年级',
+//                    `major` varchar(32) DEFAULT NULL COMMENT '专业',
+//                    `phone` varchar(32) DEFAULT NULL,
+//            `status` int(11) DEFAULT NULL COMMENT '1代表正常，-1代表删除',
+//                    `punch_time` datetime(6) DEFAULT NULL COMMENT '打卡时间',
+//                    `create_time` datetime(6) DEFAULT NULL COMMENT '创建时间',
+//                    `punch_status` int(11) DEFAULT NULL COMMENT '打卡状态',
+//                    `update_time` datetime(6) DEFAULT NULL,
 //            iUserService.updateById(userQo);
 //        }else{
 //            userQo.setStatus(StatusEnum.NORMAL.getStatus());
@@ -219,17 +232,17 @@ public class UserController {
     * @param id  实体ID
     * @return 0 失败  1 成功
     */
-//    @PostMapping("/delete")
-//    public JsonResult userDelete(Integer id){
-//        if(id == 1){
-//            //管理员不能删除
-//            return JsonResult.error(CodeEnum.ADMIN_NOT_DELETE);
-//        }
-//        iUserService.updateById(UserQo.builder().id(id)
-//                .status(StatusEnum.DELETE.getStatus())
-//                .build());
-//        return JsonResult.success();
-//    }
+    @PostMapping("/delete")
+    public JsonResult userDelete(Long id){
+        if(id == 1){
+            //管理员不能删除
+            return JsonResult.error(CodeEnum.ADMIN_NOT_DELETE);
+        }
+        iUserService.updateById(UserQo.builder().id(id)
+                .status(StatusEnum.DELETE.getStatus())
+                .build());
+        return JsonResult.success();
+    }
 
 //    @ApiOperation(value = "修改密码", notes = "修改密码")
 //    @PostMapping("/changePassword")
